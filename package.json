@@ -1,0 +1,26 @@
+{
+  "name": "blitz-static",
+  "version": "1.0.0",
+  "description": "Utility for generating entirely static sites from a Blitz-cached Craft CMS site.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "Malven Co.",
+    "email": "chris@malven.co",
+    "url": "https://malven.co"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "dotenv": "^8.0.0",
+    "fs-extra": "^8.1.0",
+    "replace-in-file": "^4.1.0",
+    "shelljs": "^0.8.3",
+    "simplecrawler": "^1.1.8"
+  },
+  "bin": {
+    "blitz-static": "index.js"
+  }
+}
