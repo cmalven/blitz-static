@@ -44,3 +44,19 @@ cd ~/code/my-craft-project
 # Run the utility
 blitz-static
 ```
+
+## Deployment
+
+You have a lot of simple options for deployment. I recommend either [Netlify](https://www.netlify.com) or [Surge](https://surge.sh) (in that order of preference).
+
+### With Netlify
+
+```sh
+npx netlify-cli deploy --dir ./my-site.test --prod
+```
+
+### With Surge
+
+```sh
+npx surge ./my-site.test my-site.surge.sh
+```
