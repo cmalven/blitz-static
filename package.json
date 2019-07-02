@@ -18,7 +18,7 @@
     "fs-extra": "^8.1.0",
     "gulp": "^4.0.2",
     "gulp-htmlmin": "^5.0.1",
-    "replace-in-file": "^4.1.0",
+    "gulp-replace": "^1.0.0",
     "shelljs": "^0.8.3",
     "simplecrawler": "^1.1.8"
   },

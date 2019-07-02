@@ -4,9 +4,9 @@ const fs = require('fs-extra');
 const chalk = require('chalk');
 const shell = require('shelljs');
 const Crawler = require('simplecrawler');
-const replace = require('replace-in-file');
 const gulp = require('gulp');
 const htmlmin = require('gulp-htmlmin');
+const replace = require('gulp-replace');
 
 //
 //   Vars
@@ -92,29 +92,9 @@ const copyCaches = () => {
   }
   const caches = blitzCachePath + '/' + cacheDir;
   return gulp.src(blitzCachePath + '/' + cacheDir + '/**/*.html')
+    .pipe(replace(process.env.APP_SITE_URL, ''))
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest(process.cwd() + '/' + cacheDir));
-}
-
-
-//
-//   Replace URLs
-//
-//////////////////////////////////////////////////////////////////////
-
-const updateUrls = () => {
-  console.log(chalk.cyan(`Updating URLs…`));
-  try {
-    const regex = new RegExp(process.env.APP_SITE_URL, 'g');
-    const results = replace.sync({
-      files: process.cwd() + '/' + cacheDir + '/**/*',
-      from: regex,
-      to: '',
-    });
-  }
-  catch (error) {
-    console.log(chalk.red(`An error occured when crawling the site.`));
-  }
 }
 
 
@@ -156,7 +136,6 @@ async function all() {
   await crawl();
   copyCaches();
   copyAssets();
-  updateUrls();
   finish();
 }
 all();
