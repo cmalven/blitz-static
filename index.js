@@ -3,8 +3,10 @@ require('dotenv').config();
 const fs = require('fs-extra');
 const chalk = require('chalk');
 const shell = require('shelljs');
-var Crawler = require('simplecrawler');
+const Crawler = require('simplecrawler');
 const replace = require('replace-in-file');
+const gulp = require('gulp');
+const htmlmin = require('gulp-htmlmin');
 
 //
 //   Vars
@@ -89,7 +91,9 @@ const copyCaches = () => {
     return console.log(chalk.red('Blitz caches are empty. ' + chalk.cyan('Make sure you’ve generated blitz caches.')));
   }
   const caches = blitzCachePath + '/' + cacheDir;
-  fs.copySync(caches, process.cwd() + '/' + cacheDir);
+  return gulp.src(blitzCachePath + '/' + cacheDir + '/**/*.html')
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(gulp.dest(process.cwd() + '/' + cacheDir));
 }
 
 
