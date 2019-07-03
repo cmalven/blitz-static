@@ -19,7 +19,8 @@ const webToCopy = [
   'dist',
   'favicons',
   'fonts',
-  '.htaccess'
+  '.htaccess',
+  'robots.txt'
 ];
 let cacheDir = null;
 
