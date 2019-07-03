@@ -8,7 +8,9 @@ Helps generate a completely static site from a Craft CMS site that uses [Blitz](
 - Clears the Blitz caches
 - Refreshes a complete Blitz cache by crawling the entire site
 - Copies the Blitz-generated static cache files into a new directory
-- Copies all other public assets into the same directory
+- Copies all other public assets into the same directory.
+- Adds a default `robots.txt` that denies all search engine access.
+- Adds a `netlify.toml` file setting far-future expires for static assets.
 - Makes all URLs absolute.
 
 ## Requirements

@@ -53,6 +53,7 @@ const build = () => {
 
 const blitzRefresh = () => {
   console.log(chalk.cyan(`Clearing Blitz cache…`));
+  shell.exec('./craft clear-caches/seomatic-frontendtemplate-caches');
   shell.exec('./craft blitz/cache/clear');
   shell.exec('./craft blitz/cache/flush');
   shell.exec('./craft blitz/cache/purge');
@@ -105,6 +106,9 @@ const copyCaches = () => {
 //////////////////////////////////////////////////////////////////////
 
 const copyAssets = () => {
+  console.log(chalk.cyan(`Copying default assets…`));
+  fs.copySync(__dirname + '/templates', process.cwd() + '/' + cacheDir);
+
   console.log(chalk.cyan(`Copying other assets…`));
   webToCopy.forEach(item => {
     try {
