@@ -19,7 +19,7 @@
     "gulp": "^4.0.2",
     "gulp-htmlmin": "^5.0.1",
     "gulp-replace": "^1.0.0",
-    "shelljs": "^0.8.3",
+    "shelljs": "^0.8.5",
     "simplecrawler": "^1.1.8"
   },
   "bin": {
